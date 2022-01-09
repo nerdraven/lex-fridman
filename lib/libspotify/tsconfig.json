@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
+    "incremental": false,
     "module": "commonjs",
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "sourceMap": true,
     "strict": true,
     "target": "es2017",
-    "composite": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "outDir": "dist/",
@@ -26,6 +26,7 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "types": ["jest", "node"],
+    "rootDir": "src/"
     // "lib": [],
     // "baseUrl": "./",
     // "paths": {},
