@@ -17,4 +17,9 @@ export default class Spotify {
       "Authorization"
     ] = `Bearer ${tokens.access_token}`;
   }
+
+  async getEpisodes(showId: string): Promise<unknown> {
+    const res = await this.client.get(`/${showId}/episodes`)
+    return res;
+  }
 }
