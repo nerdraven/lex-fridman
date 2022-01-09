@@ -11,8 +11,6 @@
     "moduleResolution": "node",
     "outDir": "dist/",
     "resolveJsonModule": true,
-    "allowJs": true,
-    "checkJs": true,
     "esModuleInterop": true,
     "preserveSymlinks": true,
     "forceConsistentCasingInFileNames": true,
@@ -26,13 +24,11 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "types": ["jest", "node"],
-    "rootDir": "src/"
+    "rootDir": "src/",
     // "lib": [],
     // "baseUrl": "./",
     // "paths": {},
     // "rootDirs": [],
   },
-  "include": [
-    "src", "tests"
-  ]
+  "exclude": ["tests", "node_modules"]
 }
