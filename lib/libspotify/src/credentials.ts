@@ -15,15 +15,11 @@ export class SpotifyClientCredentials extends CredentialProvider {
     super();
   }
 
-  private static makeAuthorizationHeader(
-    clientId: string,
-    clientSecret: string
-  ): Record<string, string> {
-    return {
-      Authorization: Buffer.from(`${clientId}:${clientSecret}`).toString(
-        "base64"
-      ),
-    };
+  private makeAuthorizationHeader(): Record<string, string> {
+    const tokens = Buffer.from(
+      `${this.clientId}:${this.clientSecret}`
+    ).toString("base64");
+    return { Authorization: `Basic ` + tokens };
   }
 
   async getAccessToken(): Promise<Record<string, string>> {
@@ -32,10 +28,7 @@ export class SpotifyClientCredentials extends CredentialProvider {
     }).toString();
     const res = (
       await axios.post(this.oauth_token_url, body, {
-        headers: SpotifyClientCredentials.makeAuthorizationHeader(
-          this.clientId,
-          this.clientSecret
-        ),
+        headers: this.makeAuthorizationHeader(),
       })
     ).data;
     return res;
